@@ -1,9 +1,10 @@
 #!/bin/bash
-
-read -p "Select chain: 1) Mainnet 2) Testnet " chain
-while [[ "$chain" != "1" && "$chain" != "2" ]]; do
-    read -p "Please enter a valid option (1 or 2): " chain
-done
+if [ -z $chain ]; then
+    read -p "Select chain: 1) Mainnet 2) Testnet " chain
+    while [[ "$chain" != "1" && "$chain" != "2" ]]; do
+        read -p "Please enter a valid option (1 or 2): " chain
+    done
+fi
 
 if [[ "$chain" == "1" ]]; then
     echo "You selected Mainnet"
@@ -191,3 +192,4 @@ EOF
 npx hardhat deploy-zksync
 
 rm -rf $HOME/greeter/
+unset WALLET_PRIVATE_KEY
