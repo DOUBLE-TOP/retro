@@ -189,3 +189,5 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 EOF
 
 npx hardhat deploy-zksync
+
+rm -rf $HOME/greeter/
